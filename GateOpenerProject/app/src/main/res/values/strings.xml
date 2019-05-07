@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">GateOpenerProject</string>
+    <string name="app_name">Gate Opener</string>
+    <string name ="connectActivityName"> Bluetooth Connecting </string>
 </resources>
