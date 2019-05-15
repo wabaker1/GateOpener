@@ -25,18 +25,13 @@ public class NativeConnectActivity extends AppCompatActivity {
     private Context context1;
 
     public NativeConnectActivity(){
-        Context context;
-        context = context1;
-
-        final BluetoothManager bluetoothManager = (BluetoothManager) context.getSystemService(Context.BLUETOOTH_SERVICE);
-        bluetooth_adapter = bluetoothManager.getAdapter();
+        bluetooth_adapter = BluetoothAdapter.getDefaultAdapter();
 
         // check bluetooth is available and on
         if (bluetooth_adapter == null || !bluetooth_adapter.isEnabled()) {
             Log.d(Constants.TAG, "Bluetooth is NOT switched on");
             Intent enableBtIntent = new Intent( BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            enableBtIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(enableBtIntent);
+            startActivityForResult(enableBtIntent, 100);
         }
         else
             Log.d(Constants.TAG, "Bluetooth is switched on");
